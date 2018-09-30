@@ -44,7 +44,10 @@ namespace Automation_tool
         {
             if (excelCheck(filePath, fileName))
             {
-                Excel excel = new Excel(filePath, fileName);
+                ReadExcel excel = new ReadExcel(filePath, fileName);
+                excel.openExcel();
+                excel.closeWorkbook();
+                //MessageBox.Show(value);
             }
             else
             {
