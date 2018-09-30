@@ -1,0 +1,10 @@
+c:\users\gobi\documents\visual studio 2012\Projects\Automation tool\Automation tool\bin\Debug\Automation tool.exe.config
+c:\Users\GOBI\Documents\Visual Studio 2012\Projects\Automation tool\Automation tool\obj\Debug\Automation tool.csprojResolveAssemblyReference.cache
+c:\Users\GOBI\Documents\Visual Studio 2012\Projects\Automation tool\Automation tool\obj\Debug\Automation tool.csproj.ResolveComReference.cache
+c:\Users\GOBI\Documents\Visual Studio 2012\Projects\Automation tool\Automation tool\obj\Debug\Automation_tool.Form1.resources
+c:\Users\GOBI\Documents\Visual Studio 2012\Projects\Automation tool\Automation tool\obj\Debug\Automation_tool.Properties.Resources.resources
+c:\Users\GOBI\Documents\Visual Studio 2012\Projects\Automation tool\Automation tool\obj\Debug\Automation tool.csproj.GenerateResource.Cache
+c:\Users\GOBI\Documents\Visual Studio 2012\Projects\Automation tool\Automation tool\bin\Debug\Automation tool.exe
+c:\Users\GOBI\Documents\Visual Studio 2012\Projects\Automation tool\Automation tool\bin\Debug\Automation tool.pdb
+c:\Users\GOBI\Documents\Visual Studio 2012\Projects\Automation tool\Automation tool\obj\Debug\Automation tool.exe
+c:\Users\GOBI\Documents\Visual Studio 2012\Projects\Automation tool\Automation tool\obj\Debug\Automation tool.pdb
