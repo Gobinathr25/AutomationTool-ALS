@@ -25,6 +25,7 @@ namespace Automation_tool
                 Excel.Range xlRange = xlWorkSheet.UsedRange;
                 double rowsCount = xlRange.Rows.Count;
                 double columnCount = xlRange.Columns.Count;
+                bool found = false;
                 for (int i = 2; i < rowsCount; i++)
                 {
                     string value = xlWorkSheet.Cells[i, 2].Value2;
@@ -42,6 +43,12 @@ namespace Automation_tool
                                 if (index > -1)
                                 {
                                     string variableTobeFound = fetchVariableName[index + 1];
+                                    string toBeSearch = variableTobeFound+ "!=" + "null";
+                                    string toBeSearch_1 = variableTobeFound + " " + "!=" + " " + "null";
+                                    if (Array.Exists(codeSplit, element => element.Contains(toBeSearch)) || Array.Exists(codeSplit, element => element.Contains(toBeSearch_1)))
+                                    {
+                                        found = true;
+                                    }
                                 }
                             }
                         }
