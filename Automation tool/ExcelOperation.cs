@@ -29,11 +29,11 @@ namespace Automation_tool
                 for (int i = 2; i < rowsCount; i++)
                 {
                     string value = xlWorkSheet.Cells[i, 2].Value2;
-                    string[] codeSplit = value.Split('\n');
+                    string[] codeSplit = value.Split(';');
                     for (int j = 0; j < codeSplit.Length; j++)
                     {
                         string line = codeSplit[j];
-                        if (line.Contains(dataType))
+                        if (line.Contains(dataType) && !line.StartsWith("/") && !line.StartsWith("\n"))
                         {
                             char[] whitespace = new char[] { ' ', '\t' };
                             string[] fetchVariableName = line.Split(whitespace, StringSplitOptions.RemoveEmptyEntries);
