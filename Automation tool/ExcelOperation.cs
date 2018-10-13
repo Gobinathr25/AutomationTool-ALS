@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Office.Interop.Excel;
+using System.IO;
 using Excel = Microsoft.Office.Interop.Excel;
 
 namespace Automation_tool
@@ -25,6 +27,8 @@ namespace Automation_tool
                 Excel.Range xlRange = xlWorkSheet.UsedRange;
                 double rowsCount = xlRange.Rows.Count;
                 double columnCount = xlRange.Columns.Count;
+                ArrayList arrVariables = new ArrayList();
+
                 bool found = false;
                 for (int i = 2; i < rowsCount; i++)
                 {
@@ -33,7 +37,8 @@ namespace Automation_tool
                     for (int j = 0; j < codeSplit.Length; j++)
                     {
                         string line = codeSplit[j];
-                        if (line.Contains(dataType) && !line.StartsWith("/") && !line.StartsWith("\n"))
+                        if (line.StartsWith("/") || line.StartsWith("\n")) continue;
+                        if (line.Contains(dataType))
                         {
                             char[] whitespace = new char[] { ' ', '\t' };
                             string[] fetchVariableName = line.Split(whitespace, StringSplitOptions.RemoveEmptyEntries);
@@ -42,15 +47,24 @@ namespace Automation_tool
                                 int index = Array.IndexOf(fetchVariableName, dataType);
                                 if (index > -1)
                                 {
-                                    string variableTobeFound = fetchVariableName[index + 1];
-                                    string toBeSearch = variableTobeFound+ "!=" + "null";
-                                    string toBeSearch_1 = variableTobeFound + " " + "!=" + " " + "null";
-                                    if (Array.Exists(codeSplit, element => element.Contains(toBeSearch)) || Array.Exists(codeSplit, element => element.Contains(toBeSearch_1)))
-                                    {
-                                        found = true;
-                                    }
+                                    arrVariables.Add(fetchVariableName[index + 1]);
+                                    //string toBeSearch = variableTobeFound+ "!=" + "null";
+                                    //string toBeSearch_1 = variableTobeFound + " " + "!=" + " " + "null";                                    
                                 }
                             }
+                        }
+                        if (line.Contains("if (") || line.Contains("if("))
+                        {
+                            if (arrVariables.Count > 0)
+                            {
+                                for (int k = 0; k < arrVariables.Count; k++)
+                                {
+                                    if (line.IndexOf(arrVariables[k].ToString()) > -1)
+                                    {
+
+                                    }
+                                }
+                            }                         
                         }
                     }
                 }
